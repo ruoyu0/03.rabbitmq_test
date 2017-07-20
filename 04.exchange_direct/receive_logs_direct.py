@@ -10,7 +10,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 # 2.创建通道(channel)
 channel = connection.channel()
 channel.exchange_declare(exchange="direct_logs", type="direct")
-# 创建一个新的queue，名字让rabbitmq随机生成
+# 创建一个新的queue，名字让rabbitmq随机生成，并让连接关闭时删除该queue
 result = channel.queue_declare(exclusive=True)
 # 取得queue的名字
 queue_name = result.method.queue

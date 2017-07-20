@@ -4,7 +4,7 @@
 
 #!/usr/bin/env python
 import pika
-import uuid
+import uuid, time
 
 
 class FibonacciRpcClient(object):
@@ -40,6 +40,8 @@ class FibonacciRpcClient(object):
         )
         while self.response is None:
             self.connection.process_data_events()
+            print "wait..."
+            time.sleep(1)
         return int(self.response)
 
 
