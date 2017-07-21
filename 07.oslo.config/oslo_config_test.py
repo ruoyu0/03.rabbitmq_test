@@ -33,5 +33,6 @@ CONF.register_opts(rabbit_Opts, rabbit_group)
 # 设置默认的配置文件名
 CONF(sys.argv[1:], default_config_files=['app.conf'])
 
-# 使用配置项
-print ("username=%s  rabbitmq.host=%s " % (CONF.username, CONF.rabbit.host))
+# 使用配置项，print
+print ("username=%s" % (CONF.username))
+print ("rabbitmq.host=%s rabbitmq.port=%s" % (CONF.rabbit.host, CONF.rabbit.port))
